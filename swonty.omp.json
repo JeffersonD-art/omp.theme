@@ -1,0 +1,66 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"blocks": [
+		{
+			"alignment": "left",
+			"segments": [
+				{
+					"foreground": "#50FA7B",
+					"style": "plain",
+					"template": "<b>Jeffer</b> ",
+					"type": "text"
+				},
+				{
+					"foreground": "#fa7cc4",
+					"properties": {
+						"folder_separator_icon": "\\"
+					},
+					"style": "plain",
+					"template": "{{ .Path }}",
+					"type": "path"
+				},
+				{
+					"foreground": "#50FA7B",
+					"properties": {
+						"branch_icon": "",
+						"fetch_status": true
+					},
+					"style": "plain",
+					"template": " git:({{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<#facf63>{{ .HEAD }}</>{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} <#50FA7B>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <#e0404d>{{ .Working.String }}</>{{ end }})",
+					"type": "git"
+				},
+				{
+					"foreground": "#f7d55a",
+					"style": "plain",
+					"properties": {
+						"fetch_virtual_env": true
+					},
+					"template": " Python:({{ if .Venv }}{{ .Venv }}{{ else }}{{ .Full }}{{ end }}</>)",
+					"type": "python"
+				},
+				{
+					"foreground": "#F1FA8C",
+					"style": "plain",
+					"template": " (Node.js: {{ .Full }}) ",
+					"type": "node"
+				}
+			],
+			"type": "prompt"
+		},
+		{
+			"alignment": "left",
+			"newline": true,
+			"segments": [
+				{
+					"foreground": "#50FA7B",
+					"style": "plain",
+					"template": "<b>❯</b>",
+					"type": "text"
+				}
+			],
+			"type": "prompt"
+		}
+	],
+	"final_space": true,
+	"version": 2
+}
